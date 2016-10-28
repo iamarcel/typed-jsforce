@@ -15,8 +15,8 @@ declare module jsforce {
         VERSION: string;// pkg.version;
     }
 
-    export interface Connection extends NodeJS.EventEmitter {
-        new (options: ConnectionOptions);
+    export class Connection extends NodeJS.EventEmitter {
+        constructor (options: ConnectionOptions);
         analytics: Analytics;
         apex: Apex;
         bulk: Bulk;
