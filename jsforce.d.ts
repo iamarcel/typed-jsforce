@@ -3,7 +3,7 @@
 // Definitions by: JohnAaronNelson <https://github.com/celador>
 /// <reference path="./typings/main/ambient/node/node.d.ts" />
 
-declare module 'jsforce' {
+declare module jsforce {
 
     export interface jsforce {
         Connection: Connection;
@@ -163,5 +163,6 @@ declare module 'jsforce' {
 
     }
 
-    export = jsforce;
 }
+
+export = jsforce;
