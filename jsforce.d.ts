@@ -2,10 +2,10 @@
 // Project: https://github.com/jsforce/jsforce
 // Definitions by: JohnAaronNelson <https://github.com/celador>
 /// <reference path="./typings/main/ambient/node/node.d.ts" />
-    
+
 declare module 'jsforce' {
 
-    interface jsforce {
+    export interface jsforce {
         Connection: Connection;
         OAuth2: OAuth2;// require('./oauth2');
         Promise: Promise;// require('./promise');
@@ -15,7 +15,7 @@ declare module 'jsforce' {
         VERSION: string;// pkg.version;
     }
 
-    interface Connection extends NodeJS.EventEmitter {
+    export interface Connection extends NodeJS.EventEmitter {
         new (options: ConnectionOptions);
         analytics: Analytics;
         apex: Apex;
@@ -40,7 +40,7 @@ declare module 'jsforce' {
         login(name: string, password: string): any;
     }
 
-    interface OAuth2 {
+    export interface OAuth2 {
         new (options: OAuthConfigOptions);
         loginUrl?: string; // Salesforce login server URL
         authzServiceUrl?: string; // OAuth2 authorization service URL. If not specified, it generates from default by adding to login server URL.
@@ -50,11 +50,11 @@ declare module 'jsforce' {
         redirectUri: string;  // URI to be callbacked from Salesforce OAuth2 authorization service.
     }
 
-    interface FileRegistry {
+    export interface FileRegistry {
 
     }
 
-    interface SfDate {
+    export interface SfDate {
         new ();
         toString(): Date;
         toJSON(): Date;
@@ -63,14 +63,14 @@ declare module 'jsforce' {
         toDateTimeLiteral(date: Date): SfDate
     }
 
-    interface RecordStream extends NodeJS.ReadableStream {
+    export interface RecordStream extends NodeJS.ReadableStream {
         new ();
         filter(fn): {}; // RecordStream.Serializable;
         map(fn): {}; // {RecordStream.Serializable}
         recordMapStream(record, noeval?): {}; // {RecordStream.Serializable}
     }
 
-    interface Promise {
+    export interface Promise {
         new ();
         all(promises): PromiseLike<Array<any>>;// {Promise.<Array.<*>>}
         defer(): PromiseLike<any>;// {Deferred}
@@ -83,7 +83,7 @@ declare module 'jsforce' {
         thenCall(callback?): PromiseLike<any>;// {Promise}
     }
 
-    interface OAuthConfigOptions {
+    export interface OAuthConfigOptions {
         loginUrl?: string;// loginUrl	string	<optional>
         authzServiceUrl?: string;// authzServiceUrl	string	<optional>
         tokenServiceUrl?: string;// tokenServiceUrl	string	<optional>
@@ -92,7 +92,7 @@ declare module 'jsforce' {
         redirectUri?: string;// redirectUri	string		URI to be callbacked from Salesforce OAuth2 authorization service.
     }
 
-    interface ConnectionOptions {
+    export interface ConnectionOptions {
         oauth2?: OAuth2 | {}; // OAuth2 instance or options to be passed to OAuth2 constructor
         logLevel?: string; // Output logging level (DEBUG|INFO|WARN|ERROR|FATAL)
         version?: string; // Salesforce API Version (without "v" prefix)
@@ -108,58 +108,58 @@ declare module 'jsforce' {
         callOptions?: {}; // Call options used in each SOAP/REST API request. See manual.
     }
 
-    interface UserInfo {
+    export interface UserInfo {
         id: string; // User ID
         organizationId: string; // Organization ID
         url: string; // Identity URL of the user
     }
-    interface RecordResult {
+    export interface RecordResult {
 
     }
 
-    interface Analytics {
+    export interface Analytics {
 
     }
-    interface Apex {
+    export interface Apex {
 
     }
-    interface Bulk {
+    export interface Bulk {
 
     }
-    interface Cache {
+    export interface Cache {
 
     }
-    interface Chatter {
+    export interface Chatter {
 
     }
-    interface Metadata {
+    export interface Metadata {
 
     }
-    interface OAuth2 {
+    export interface OAuth2 {
 
     }
-    interface Process {
+    export interface Process {
 
     }
-    interface SoapApi {
+    export interface SoapApi {
 
     }
-    interface Streaming {
+    export interface Streaming {
 
     }
-    interface Tooling {
+    export interface Tooling {
 
     }
-    interface DeletedRecordsInfo {
+    export interface DeletedRecordsInfo {
         earliestDateAvailable: string; // The timestamp of the earliest date available
         latestDateCovered: string; // The timestamp of the last date covered
         deletedRecords: Array<DeletedRecord> // Updated records
     }
-    interface DeletedRecord {
+    export interface DeletedRecord {
         id: string; //  Record ID
         deletedDate: string; //  The timestamp when this record was deleted
     }
-    interface DescribeSObjectResult {
+    export interface DescribeSObjectResult {
 
     }
 
